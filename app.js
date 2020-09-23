@@ -1,22 +1,32 @@
 const app = Vue.createApp({
-data() {   
-return {
-    output1: 'name',
-    output2: 'name2'
-}
-},
-methods: {
-    show(){
-        alert("button pressed")
-    },
-    setInput(event){
-        this.output1 = event.target.value;
-    },
-    confirmInput(firstName,event){
-        this.output2 = this.output1 + ' ' + event.target.value;
-    }
+    data() {
+        return {
+            counter: 0,
+            };
+        },
 
-}
+    methods: {
+        add5(){
+            this.counter+= 5;
+         },
+         add1(){
+             this.counter+=1;
+         }
+
+    },
+    computed:{
+        yourResult(){
+            if (this.counter < 37) {
+                return "not there yet";
+            }
+            if (this.counter == 37) {
+                return "37";
+            }
+            else  {return "Too much!";}
+        }
+    },
+
+
 
 });
-app.mount('#assignment');
+app.mount('#assignment')
